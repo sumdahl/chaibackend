@@ -1,5 +1,5 @@
 import multer from "multer";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -11,4 +11,4 @@ const storage = multer.diskStorage({
   },
 });
 
-export const upload = multer({ storage });
+export const upload = multer({ storage: storage });
