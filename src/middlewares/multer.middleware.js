@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
     cb(null, "./public/temp");
   },
   filename: function (req, file, cb) {
-    const filename = nanoid(10);
+    const filename = nanoid(8);
     cb(null, `${file.fieldname}-${filename}`);
   },
 });
