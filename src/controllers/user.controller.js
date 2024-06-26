@@ -149,7 +149,7 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
-  const loggedOutUser = await User.findByIdAndUpdate(
+  await User.findByIdAndUpdate(
     req.user._id,
     {
       $set: {
@@ -168,12 +168,6 @@ const logoutUser = asyncHandler(async (req, res) => {
     .status(200)
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
-    .json(
-      new ApiResponse(
-        200,
-        {},
-        "User logged out."
-      )
-    );
+    .json(new ApiResponse(200, {}, "User logged out."));
 });
 export { registerUser, loginUser, logoutUser };
