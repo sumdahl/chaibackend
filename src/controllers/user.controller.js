@@ -32,6 +32,9 @@ const registerUser = asyncHandler(async (req, res) => {
   ) {
     throw new ApiError(400, "All fields are required");
   }
+  if(username.length >=12){
+    throw new ApiError(400, "Username should be max upto 12 characters long.")
+  }
 
   const existedUser = await User.findOne({
     $or: [{ username }, { email }],

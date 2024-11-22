@@ -10,6 +10,7 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       trim: true,
+      maxlength: 12, //todo ?
       index: true, //increase load but help in searching
     },
     email: {
