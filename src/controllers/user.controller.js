@@ -324,9 +324,8 @@ const updatedCoverImage = await User.findByIdAndUpdate(
   {
     $set: {
       coverImage: coverImage.url
-    },
-    {new:true}
-  }
+    }
+  }, {new : true}
 ).select("-password")
 
 return(res)
